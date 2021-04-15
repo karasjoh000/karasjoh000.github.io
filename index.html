@@ -310,14 +310,14 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -361,6 +361,80 @@ mjx-container[display="true"] + br {
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://karasjoh000.github.io/2021/04/14/Docker-Retagging/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="John Karasev">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/14/Docker-Retagging/" class="post-title-link" itemprop="url">Docker Retagging</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-04-14 19:51:33 / Modified: 20:03:45" itemprop="dateCreated datePublished" datetime="2021-04-14T19:51:33-07:00">2021-04-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Often times you encounter a situation where you need to push a docker image into<br>your own private or public registry. This requires retagging. For example: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker images</span></span><br><span class="line">REPOSITORY                    TAG                IMAGE ID       CREATED          SIZE</span><br><span class="line">quay.io/osism/kolla-ansible   victoria-a1d16f5   ee405e04ead5   39 minutes ago   829MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             a3193a49f053   6 hours ago      713MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             16dede0b085c   6 hours ago      713MB</span><br><span class="line">osism/kolla-ansible           ussuri             06d12dfee918   3 months ago     673MB</span><br></pre></td></tr></table></figure>
+<p>In order to push <code>quay.io/osism/kolla-ansible</code> to a public registry <code>jkarasev/kolla-ansible</code>: </p>
+<ol>
+<li>create registry in docker hub <code>kolla-ansible</code>: <a target="_blank" rel="noopener" href="https://hub.docker.com/repository/docker/jkarasev/kolla-ansible">https://hub.docker.com/repository/docker/jkarasev/kolla-ansible</a></li>
+<li>retag docker image <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag quay.io/osism/kolla-ansible:victoria-a1d16f5 jkarasev/kolla-ansible:victoria </span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker images</span></span><br><span class="line">REPOSITORY                    TAG                IMAGE ID       CREATED          SIZE</span><br><span class="line">jkarasev/kolla-ansible        victoria           ee405e04ead5   48 minutes ago   829MB</span><br><span class="line">quay.io/osism/kolla-ansible   victoria-a1d16f5   ee405e04ead5   48 minutes ago   829MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             a3193a49f053   6 hours ago      713MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             16dede0b085c   7 hours ago      713MB</span><br><span class="line">osism/kolla-ansible           ussuri             06d12dfee918   3 months ago     673MB </span><br></pre></td></tr></table></figure></li>
+<li>push <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push jkarasev/kolla-ansible:victoria</span><br></pre></td></tr></table></figure>
+Very simple but recording it for reference. </li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
