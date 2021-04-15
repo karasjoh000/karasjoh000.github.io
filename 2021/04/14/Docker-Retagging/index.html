@@ -32,7 +32,7 @@
 <meta property="og:description" content="Often times you encounter a situation where you need to push a docker image intoyour own private or public registry. This requires retagging. For example:  123456# docker imagesREPOSITORY">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-15T02:51:33.000Z">
-<meta property="article:modified_time" content="2021-04-15T03:03:45.632Z">
+<meta property="article:modified_time" content="2021-04-15T05:18:02.868Z">
 <meta property="article:author" content="John Karasev">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="docker-registry">
@@ -290,7 +290,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-04-14 19:51:33 / Modified: 20:03:45" itemprop="dateCreated datePublished" datetime="2021-04-14T19:51:33-07:00">2021-04-14</time>
+      <time title="Created: 2021-04-14 19:51:33 / Modified: 22:18:02" itemprop="dateCreated datePublished" datetime="2021-04-14T19:51:33-07:00">2021-04-14</time>
     </span>
 
   
@@ -307,7 +307,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker images</span></span><br><span class="line">REPOSITORY                    TAG                IMAGE ID       CREATED          SIZE</span><br><span class="line">quay.io/osism/kolla-ansible   victoria-a1d16f5   ee405e04ead5   39 minutes ago   829MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             a3193a49f053   6 hours ago      713MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             16dede0b085c   6 hours ago      713MB</span><br><span class="line">osism/kolla-ansible           ussuri             06d12dfee918   3 months ago     673MB</span><br></pre></td></tr></table></figure>
 <p>In order to push <code>quay.io/osism/kolla-ansible</code> to a public registry <code>jkarasev/kolla-ansible</code>: </p>
 <ol>
-<li>create registry in docker hub <code>kolla-ansible</code>: <a target="_blank" rel="noopener" href="https://hub.docker.com/repository/docker/jkarasev/kolla-ansible">https://hub.docker.com/repository/docker/jkarasev/kolla-ansible</a></li>
+<li>create registry in docker hub <code>kolla-ansible</code>: <a target="_blank" rel="noopener" href="https://hub.docker.com/repository/docker/jkarasev/kolla-ansible">registry link</a></li>
 <li>retag docker image <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag quay.io/osism/kolla-ansible:victoria-a1d16f5 jkarasev/kolla-ansible:victoria </span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker images</span></span><br><span class="line">REPOSITORY                    TAG                IMAGE ID       CREATED          SIZE</span><br><span class="line">jkarasev/kolla-ansible        victoria           ee405e04ead5   48 minutes ago   829MB</span><br><span class="line">quay.io/osism/kolla-ansible   victoria-a1d16f5   ee405e04ead5   48 minutes ago   829MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             a3193a49f053   6 hours ago      713MB</span><br><span class="line">&lt;none&gt;                        &lt;none&gt;             16dede0b085c   7 hours ago      713MB</span><br><span class="line">osism/kolla-ansible           ussuri             06d12dfee918   3 months ago     673MB </span><br></pre></td></tr></table></figure></li>
 <li>push <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push jkarasev/kolla-ansible:victoria</span><br></pre></td></tr></table></figure>
