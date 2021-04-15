@@ -360,6 +360,11 @@
 
 
 
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -459,6 +464,23 @@ if (document.querySelectorAll('.pdf-container').length) {
 
   
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : 'XXx5kPBtX2SqdwVNPomO4tSpLaCuadRCZ2cRMl143rRrYMeUIBTCb7ec0uCiyi5z',
+      shortname : 'johnkarasev',
+      url       : "https://karasjoh000.github.io/2021/04/13/hello-world/",
+      identifier: "2021/04/13/hello-world/",
+      title     : "Hello World",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
 </body>
 </html>
